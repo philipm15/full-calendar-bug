@@ -5,30 +5,21 @@
   [resources]="resources"
   [events]="events"
 >
-  <div
-    *qpointCalendarSlotLabelTemplate="let arg = arg"
-    class="d-flex flex-column"
-  >
-    <div class="d-flex flex-row justify-content-between">
-      <span class="date-label">{{ arg.date }}</span>
+  <div *qpointCalendarSlotLabelTemplate="let arg=arg" class="d-flex flex-column">
+    <div class="d-flex flex-row justify-content-between p-1">
+      <span class="date-label">{{arg.date | date:'dd EEEEEE'}}</span>
       <div class="d-flex flex-column">
-        <img src="http://openweathermap.org/img/w/10d.png" />
+        <img src="http://openweathermap.org/img/w/10d.png">
         <strong>1°C</strong>
       </div>
     </div>
   </div>
 
-  <div
-    *qpointCalendarResourceLabelTemplate="let resource = resource"
-    class="d-flex flex-row"
-  >
-    <img
-      [src]="resource?.extendedProps?.img"
-      class="rounded-circle"
-      [style.height.px]="50"
-    />
+  <div *qpointCalendarResourceLabelTemplate="let resource=resource" class="d-flex flex-row">
+    <img [src]="resource?.extendedProps?.imageUrl" class="rounded-circle" [style.height.px]="50">
     <div class="d-flex flex-column mx-2">
-      <strong>{{ resource?.extendedProps?.name }}</strong>
+      <strong [class.text-primary]="resource?.id === 'unassigned'">{{resource?.extendedProps?.title}}</strong>
+      <span>{{resource?.extendedProps?.description}}</span>
     </div>
   </div>
 </qpoint-calendar>

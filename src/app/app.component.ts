@@ -15,12 +15,22 @@ export class AppComponent {
     weekends: true,
     headerToolbar: {
       ...defaultHeaderToolbar,
-      right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth',
+      right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineWeekend',
     },
     slotDuration: { days: 1 },
     slotLabelClassNames: ['resource-timeline-label'],
     nowIndicator: false,
     defaultAllDay: false,
+    views: {
+      resourceTimelineWeekend: {
+        type: 'resourceTimeline',
+        weekends: false,
+        duration: {
+          week: 1
+        },
+        buttonText: 'week without weekend'
+      }
+    }
   };
 
   resources: QPointCalendarResource[] = [
