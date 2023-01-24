@@ -1,0 +1,34 @@
+<qpoint-calendar
+  [options]="calendarOptions"
+  class="border-none"
+  [calendarClasses]="['resource-timeline-fc']"
+  [resources]="resources"
+  [events]="events"
+>
+  <div
+    *qpointCalendarSlotLabelTemplate="let arg = arg"
+    class="d-flex flex-column"
+  >
+    <div class="d-flex flex-row justify-content-between">
+      <span class="date-label">{{ arg.date }}</span>
+      <div class="d-flex flex-column">
+        <img src="http://openweathermap.org/img/w/10d.png" />
+        <strong>1°C</strong>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *qpointCalendarResourceLabelTemplate="let resource = resource"
+    class="d-flex flex-row"
+  >
+    <img
+      [src]="resource?.extendedProps?.img"
+      class="rounded-circle"
+      [style.height.px]="50"
+    />
+    <div class="d-flex flex-column mx-2">
+      <strong>{{ resource?.extendedProps?.name }}</strong>
+    </div>
+  </div>
+</qpoint-calendar>

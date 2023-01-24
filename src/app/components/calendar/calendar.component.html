@@ -1,0 +1,9 @@
+<full-calendar
+  #calendar
+  [options]="calendarOptions"
+  [events]="events$ | async"
+  [resources]="resources$ | async"
+  [ngClass]="calendarClasses"
+>
+  <ng-content></ng-content>
+</full-calendar>
